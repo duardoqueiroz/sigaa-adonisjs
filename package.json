@@ -68,6 +68,8 @@
     "@adonisjs/shield": "^7.0.0",
     "@adonisjs/view": "^6.1.0",
     "@fortawesome/fontawesome-free": "^5.15.4",
+    "@rocketseat/adonis-bull": "alpha",
+    "brazilian-values": "^0.12.0",
     "luxon": "^3.0.3",
     "pg": "^8.8.0",
     "proxy-addr": "^2.0.7",
