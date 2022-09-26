@@ -1,6 +1,10 @@
 import { DateTime } from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
-import { column, beforeSave, BaseModel } from '@ioc:Adonis/Lucid/Orm'
+import { column, beforeSave, BaseModel, hasOne, HasOne } from '@ioc:Adonis/Lucid/Orm'
+import Server from './Server'
+import Student from './Student'
+import { GENDERS } from 'Contracts/interfaces/GENDERS'
+import { MARITAL_STATUS } from 'Contracts/interfaces/MARITAL_STATUS'
 
 export default class User extends BaseModel {
   @column({ isPrimary: true })
@@ -10,37 +14,40 @@ export default class User extends BaseModel {
   public name: string
 
   @column()
-  public genre: string
+  public username: string
+
+  @column()
+  public genre: GENDERS
 
   @column()
   public birthday: DateTime
 
   @column()
-  public maritalStatus: string
+  public maritalStatus?: MARITAL_STATUS
 
   @column()
-  public country: string
+  public country?: string
 
   @column()
-  public race: string
+  public race?: string
 
   @column()
-  public nationality: string
+  public nationality?: string
 
   @column()
-  public naturalness: string
+  public naturalness?: string
 
   @column()
   public cpf: string
-
-  @column()
-  public rg: string
 
   @column()
   public email: string
 
   @column()
   public phone: string
+
+  @column()
+  public confirmed: boolean
 
   @column({ serializeAs: null })
   public password: string
@@ -60,4 +67,10 @@ export default class User extends BaseModel {
       User.password = await Hash.make(User.password)
     }
   }
+
+  @hasOne(() => Student)
+  public student: HasOne<typeof Student>
+
+  @hasOne(() => Server)
+  public server: HasOne<typeof Server>
 }
