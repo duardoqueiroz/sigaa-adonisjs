@@ -44,7 +44,7 @@ export default class User extends BaseModel {
   public email: string
 
   @column()
-  public phone: string
+  public phone?: string
 
   @column()
   public confirmed: boolean
@@ -68,9 +68,13 @@ export default class User extends BaseModel {
     }
   }
 
-  @hasOne(() => Student)
+  @hasOne(() => Student, {
+    foreignKey: 'id',
+  })
   public student: HasOne<typeof Student>
 
-  @hasOne(() => Server)
+  @hasOne(() => Server, {
+    foreignKey: 'id',
+  })
   public server: HasOne<typeof Server>
 }

@@ -10,7 +10,7 @@ export default class extends BaseSchema {
       table.string('name').notNullable()
       table.string('cpf').notNullable().unique()
       table.string('username').notNullable().unique()
-      table.string('phone').notNullable().unique()
+      table.string('phone').unique()
       table.enum('genre', [GENDERS.ALL, GENDERS.FEMALE, GENDERS.MALE, GENDERS.OTHERS]).notNullable()
       table.date('birthday').notNullable().defaultTo(new Date().toISOString())
       table.enum('marital_status', [

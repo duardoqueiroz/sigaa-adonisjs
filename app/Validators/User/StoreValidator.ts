@@ -7,6 +7,11 @@ export default class StoreValidator {
 
   public schema = schema.create({
     name: schema.string({}, [rules.required(), rules.maxLength(150)]),
+    email: schema.string({}, [
+      rules.email(),
+      rules.required(),
+      rules.unique({ table: 'users', column: 'email' }),
+    ]),
     username: schema.string({}, [
       rules.required(),
       rules.unique({ table: 'users', column: 'username' }),

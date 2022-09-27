@@ -48,6 +48,7 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-adonis": "^2.1.1",
     "eslint-plugin-prettier": "^4.2.1",
+    "file-loader": "^6.2.0",
     "pino-pretty": "^9.1.0",
     "postcss-loader": "^7.0.1",
     "prettier": "^2.7.1",
@@ -72,6 +73,7 @@
     "brazilian-values": "^0.12.0",
     "luxon": "^3.0.3",
     "pg": "^8.8.0",
+    "phc-argon2": "^1.1.3",
     "proxy-addr": "^2.0.7",
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.21"
